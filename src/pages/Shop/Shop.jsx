@@ -3,6 +3,7 @@ import MainLayout from "../../layouts/MainLayout/MainLayout";
 import ProductItem from '../Home/components/ProductItem';
 import productApi from '../../apis/Product.api';
 import { useQuery } from '@tanstack/react-query';
+import Footer from '../Home/components/Footer/Footer';
 
 export default function Shop() {
 
@@ -10,7 +11,6 @@ export default function Shop() {
     queryKey: ['products'],
     queryFn : ()=> productApi.getAllProducts()
    })
-   console.log("Product : ",products)
 
     return (
         <div>
@@ -231,6 +231,7 @@ export default function Shop() {
                     </div>
                 </div>
             </MainLayout>
+            <Footer/>
         </div>
     );
 }

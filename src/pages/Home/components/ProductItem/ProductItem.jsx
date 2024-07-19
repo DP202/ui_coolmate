@@ -2,7 +2,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { Fragment } from "react";
 
-export default function ProductItem({ products }) {
+export default function ProductItem({ products}) {
     const baseUrl = "http://localhost:8080/uploads/";
 
     return (
@@ -10,7 +10,7 @@ export default function ProductItem({ products }) {
             {products && products.map((product, index) => (
                 <div key={product.id} className="col-lg-4 col-md-6 col-sm-6">
                     <div className="product__item">
-                        <div className="product__item__pic set-bg" style={{ backgroundImage: `url(${baseUrl}${product.productImages[0].imageUrl})` }}>
+                        <div className="product__item__pic set-bg h350" style={{ backgroundImage: `url(${baseUrl}${product.productImages[0].imageUrl})` }}>
                             <ul className="product__hover">
                                 <li>
                                     <FaRegHeart />

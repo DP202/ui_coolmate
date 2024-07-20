@@ -1,6 +1,8 @@
 import { FaRegHeart } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
+import pathConfig from "../../../../configs/path.config";
 
 export default function ProductItem({ products}) {
     const baseUrl = "http://localhost:8080/uploads/";
@@ -8,7 +10,10 @@ export default function ProductItem({ products}) {
     return (
         <Fragment>
             {products && products.map((product, index) => (
-                <div key={product.id} className="col-lg-4 col-md-6 col-sm-6">
+                <Link 
+                to={pathConfig.productDetail.replace(':id', product.id)}
+                style={{ textDecoration: 'none' }} 
+                key={product.id} className="col-lg-4 col-md-6 col-sm-6">
                     <div className="product__item">
                         <div className="product__item__pic set-bg h350" style={{ backgroundImage: `url(${baseUrl}${product.productImages[0].imageUrl})` }}>
                             <ul className="product__hover">
@@ -17,8 +22,8 @@ export default function ProductItem({ products}) {
                                 </li>
                             </ul>
                         </div>
-                        <div className="product__item__text">
-                            <h6 style={{ fontSize: '17px' }}>{product.name}</h6>
+                        <div className="product__item__text ">
+                            <h6 className="tilte_product" style={{ fontSize: '17px',color:'#3a3a3a'}}>{product.name}</h6>
                             <a href="#" className="add-cart">+ Add To Cart</a>
                             <div className="rating d-flex gap-1">
                                 <FaStar color='#bcbe14' size='13px' />
@@ -34,7 +39,7 @@ export default function ProductItem({ products}) {
                             )}
                         </div>
                     </div>
-                </div>
+                </Link>
             ))}
         </Fragment>
     )

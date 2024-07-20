@@ -1,6 +1,7 @@
 const pathConfig = {
     home: '/',
-    shop:'/shop'
+    shop:'/shop',
+    productDetail : '/product_details/:id'
 }
 
 export default pathConfig ;
